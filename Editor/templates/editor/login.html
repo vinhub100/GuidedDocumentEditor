@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+    <br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="userid">User ID</label>
+                        <input type="text" class="form-control" name="username" required id="userid">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pw">Password</label>
+                        <input type="password" class="form-control" name="password" id="pw">
+                    </div>
+
+                    {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <p> {{ error }} </p>
+                    {% endfor %}
+                    {% endfor %}
+
+
+                    {% for error in form.non_field_errors %}
+                    <div class="alert alert-danger">
+                        <strong>{{ error|escape }}</strong>
+                    </div>
+                    {% endfor %}
+
+                    {% endif %}
+
+                    <input class="btn btn-sm btn-success float-right" type="submit" value="login">
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ request.user.first_name }} {{ request.user.last_name }}</title>
+
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'editor/doc-style.css' %}">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="btn btn-sm btn-success" href="{% url 'addimage' %}">Add New Image</a>
+    </nav>
+    <div class="container">
+        <div class="row">
+            {% for poto in images %}
+            <div class="col-md-4 p-1">
+                <div class="card im_card" style="width: 18rem;">
+                    <img class="card-img-top im_select" src="{{ poto.image.url }}" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">
+                            {{ poto.discription }}<br>{{ poto.image.width }}x{{ poto.image.height }}-{{ poto.image.size }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+    {% if images.paginator.num_pages > 1 %}
+    <div class="btn-group p-3 mx-5" role="group">
+        <span class="step-links">
+            {% if images.has_previous %}
+            <a class="btn btn-success" href="?page=1">&laquo; first</a>
+            <a class="btn btn-success" href="?page={{ images.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="badge" style="padding:14px;">
+                Page {{ images.number }} of {{ images.paginator.num_pages }}.
+            </span> {% if images.has_next %}
+        <a class="btn btn-success" href="?page={{ images.next_page_number }}">next</a>
+        <a class="btn btn-success" href="?page={{ images.paginator.num_pages }}">last &raquo;</a> {% endif %}
+        </span>
+    </div>
+    {% endif %}
+    <br><br>
+
+
+    <nav style="bottom: 0px;position: fixed;height: 21px;width: 100%;background-color: white;">
+        <p>Selected Image: <span id="selected_image_disp">none</span></p>
+    </nav>
+
+    <form>
+        <input id="selected_image" type="hidden" value="">
+    </form>
+
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'editor/doc-script.js' %}"></script>
+</body>
+
+</html>

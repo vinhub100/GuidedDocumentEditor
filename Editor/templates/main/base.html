@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GDE</title>
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+    <div class="p-2">
+        <a href="/">
+            <h2 style="display: inline;">GDE</h2>
+        </a>
+        {% if user.is_authenticated %}
+        <a class="btn btn-outline-success float-right" href="/editor">Editor</a> {% else %}
+        <a class="btn btn-outline-success float-right" href="/login">Login</a> {% endif %}
+    </div>
+    {% block main %} {% endblock %}
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+
+</html>

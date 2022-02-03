@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ request.user.first_name }} {{ request.user.last_name }}</title>
+
+    <link rel="stylesheet" href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'editor/doc-style.css' %}">
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="{% url 'imagestore' %}" class="btn btn-success btn-sm m-2"> Back</a>
+        <div class="row">
+            <div class="col-md-6 offset-3 p-2">
+
+                <div class="card">
+                    <div class="card-header">Upload to Image Store</div>
+                    <div class="card-body">
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label for="imagefile">Select Image File</label>
+                                <input type="file" accept="image/*" name="image" class="form-control-file" id="imagefile">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imagediscription">Image Discription</label>
+                                <input type="text" class="form-control" id="imagediscription" aria-describedby="emailHelp" placeholder="" name="discription">
+                            </div>
+
+                            <button type="submit" class="btn btn-success" value="upload">Upload</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'lib/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'editor/doc-script.js' %}"></script>
+</body>
+
+</html>
