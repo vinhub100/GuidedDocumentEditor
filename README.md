@@ -1,2 +1,2 @@
 # GuidedDocumentEditor
-A Guided Document Editor Which Gives You More Time To Think About Content
+A Guided Document Editor Which Gives More Time To Think About Content
