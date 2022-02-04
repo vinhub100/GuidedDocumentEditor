@@ -7,7 +7,7 @@
         <div class="col-md-10 col-sm-12">
             {% if articles == 0 %}
             <p style="font-size: 1.5rem;">There are no Blogs<br>
-                <a href="{% url 'createBlog' %}">Click to Create New BLog</a>
+                <a href="{% url 'createBlog' %}">Click to Create New Blog</a>
             </p>
             {% else %} {% for article in articles %}
             <div style="border-radius: 5px;box-shadow: 0px 0px 5px grey;margin:20px;padding:5px;">

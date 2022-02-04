@@ -6,18 +6,18 @@
     }
 </style>
 
-<div class="container-fluid">
+<div class="container-fluid p-4">
     <div class="row">
         {% if articles == 0 %}
         <p style="font-size: 1.5rem;" class="text-center">No Articles yet...
         </p>
         {% else %} {% for article in articles %}
         <div class="col-md-3 col-sm-12">
-            <a href="{% url 'article-detail' article.slug %}">
+            <a style="text-decoration: none;color: #444;" href="{% url 'article-detail' article.slug %}">
                 <div class="card">
                     <img class="card-img-top img-fluid" src="{{ article.dp }}" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">{{ article.heading }}</h5>
+                        <h4 class="card-title">{{ article.heading }}</h4>
                         <p class="card-text">{{ article.discription }}</p>
                     </div>
                 </div>

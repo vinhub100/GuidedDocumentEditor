@@ -1,10 +1,9 @@
-
 body {
-   /* min-width: 650px; */
-   width: 100%;
+    /* min-width: 650px; */
+    width: 100%;
 }
 
-.a_main{
+.a_main {
     width: 100%;
     position: absolute;
 }
@@ -36,12 +35,12 @@ body {
     resize: none;
 }
 
-.a_list{
+.a_list {
     font-size: 1rem;
     resize: none;
 }
 
-.a_yt{
+.a_yt {
     font-size: 1.1rem;
     resize: none;
 }
@@ -57,23 +56,25 @@ body {
     margin-right: auto;
 }
 
-.add_btn_cnt{
+.add_btn_cnt {
     padding: 10px 0px;
-    height:40px;
+    height: 40px;
     opacity: 0.5;
 }
 
-.add_btn_cnt:hover{
+.add_btn_cnt:hover {
     padding: 10px 0px;
-    height:40px;
+    height: 40px;
     opacity: 1.0;
 }
 
 .round_btn {
-    /* height: 25px;
-    width: 25px; */
+    height: 25px;
+    width: 25px;
     border-radius: 50%;
     border-color: #3d3d3d3d;
+    padding: 0px;
+    font-size: 0.8rem;
     /* border-style: solid; */
 }
 
@@ -86,30 +87,29 @@ body {
     /* border-style: solid; */
 }
 
-.item_cancel_btn{
+.item_cancel_btn {
     margin: 0px;
     width: 2%;
-    padding:3px;
+    padding: 3px;
     font-size: 1.0rem;
     margin-top: -12px;
     height: 20px;
     cursor: pointer;
 }
 
-.item_cancel_btn:hover{
+.item_cancel_btn:hover {
     margin: 0px;
     width: 2%;
-    padding:3px;
+    padding: 3px;
     font-size: 1.0rem;
     margin-top: -12px;
     height: 20px;
     cursor: pointer;
-    color:red;
+    color: red;
 }
 
-
-.priview_modal_container{
-    position: fixed ;
+.priview_modal_container {
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: white;
@@ -118,16 +118,15 @@ body {
 }
 
 #preview_modal {
-    position: relative ;
+    position: relative;
     width: 100%;
     height: 100%;
-   
     /* background-color: white; */
     /* display: none; */
 }
 
-.imagestore_container{
-    position: fixed ;
+.imagestore_container {
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: #000000ee;
@@ -136,10 +135,9 @@ body {
 }
 
 #imagestore_modal {
-    position: relative ;
+    position: relative;
     width: 100%;
     height: 80%;
-    
 }
 
 .im_card {
@@ -151,8 +149,8 @@ body {
     box-shadow: 0px 0px 5px green;
 }
 
-.option_modal_container{
-    position: fixed ;
+.option_modal_container {
+    position: fixed;
     width: 100%;
     height: 100%;
     background-color: #000000ee;
@@ -161,13 +159,12 @@ body {
 }
 
 #option_modal {
-    position: relative ;
+    position: relative;
     width: 100%;
     height: 100%;
-    
 }
 
-.option_modal_close{
+.option_modal_close {
     border-width: 0px;
     border-radius: 50%;
     background-color: white;
@@ -175,7 +172,7 @@ body {
     cursor: pointer;
 }
 
-.option_modal_close:hover{
+.option_modal_close:hover {
     border-width: 0px;
     border-radius: 50%;
     background-color: white;
@@ -194,11 +191,11 @@ body {
 }
 
 .article_disp img {
-    display:block;
+    display: block;
     margin-left: auto;
     margin-right: auto;
-    padding:3px;
-    width:100%;
+    padding: 3px;
+    width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -213,11 +210,12 @@ body {
     position: relative;
     width: 100%;
     overflow: hidden;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    padding-top: 56.25%;
+    /* 16:9 Aspect Ratio */
     margin-top: 20px;
     margin-bottom: 20px;
-  }
-  
+}
+
 .responsive-iframe {
     position: absolute;
     top: 0;
@@ -227,4 +225,4 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-  }
+}

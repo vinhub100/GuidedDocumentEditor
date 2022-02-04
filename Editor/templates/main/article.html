@@ -1,5 +1,9 @@
 {% extends 'main/base.html' %} {% load static %} {% block main %}
-
+<style>
+    .title {
+        text-align: center;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row">
@@ -9,9 +13,9 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-2"></div>
                         <div class="col-lg-10 col-md-10 mx-auto">
-                            <h1 class="title-cont mobile-head">{{ article.heading }}</h1>
+                            <h1 class="title mobile-head">{{ article.heading }}</h1>
                             <small class="float-right text-secondary">by
-                                {{ article.author.first_name }} 
+                                {{ article.author.first_name }}
                                 {{ article.author.last_name }} on
                                 {{ article.creation_date }}</small>
 
@@ -31,21 +35,23 @@
                 </div>
             </article>
         </div>
+
         <div class="col-md-4 col-sm-12">
             <br><br> {% if rec_len > 1 %}
             <h3 style="text-align: center;">Recent</h3>
 
             {% for r in rec %} {% if article.slug != r.slug %}
+            <a href="{% url 'article-detail' r.slug %}" style="text-decoration: none;color: #444;">
+                <div class="card my-5 rec_cards">
+                    <img class="card-img-top" src="{{ r.dp }}" alt="Image">
+                    <div class="card-body">
 
-            <div class="card my-5 rec_cards">
-                <img class="card-img-top" src="{{ r.dp }}" alt="Image">
-                <div class="card-body">
-                    <a href="{% url 'article-detail' r.slug %}">
-                        <h5 class="card-title">{{ r.heading }}</h5>
-                    </a>
-                    <p class="card-text">{{ r.discription | truncatechars:155 }}</p>
+                        <h4 class="card-title">{{ r.heading }}</h4>
+
+                        <p class="card-text">{{ r.discription | truncatechars:155 }}</p>
+                    </div>
                 </div>
-            </div>
+            </a>
 
             {% endif %} {% endfor %} {% endif %}
 
