@@ -50,7 +50,7 @@ def home(request):
     except Exception as ex:
         print(type(ex))
         paged_article = None
-    return render(request, 'editor/list_article.html', { "label":"Published Blogs","articles":paged_article })
+    return render(request, 'editor/list_article.html', { "label":"Published Articles","articles":paged_article })
 
 
 @login_required
